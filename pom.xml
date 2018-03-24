@@ -50,7 +50,6 @@
 				<artifactId>gitflow-maven-plugin</artifactId>
 				<version>1.9.0</version>
 				<configuration>
-					<tychoBuild>true</tychoBuild>
 				</configuration>
 			</plugin>
 		</plugins>

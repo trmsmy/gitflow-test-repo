@@ -50,6 +50,19 @@
 				<artifactId>gitflow-maven-plugin</artifactId>
 				<version>1.9.0</version>
 				<configuration>
+					<commitMessages>
+						<featureStartMessage>Start feature, featureName: @{featureName}</featureStartMessage>
+						<featureFinishMessage>Finished feature and merging to development branch, featureName:@{featureName}</featureFinishMessage>
+
+						<hotfixStartMessage>Start hotfix @{version}</hotfixStartMessage>
+						<hotfixFinishMessage>Finished hotfix @{version}</hotfixFinishMessage>
+
+						<releaseStartMessage>Start release branch, version @{version}</releaseStartMessage>
+						<releaseFinishMessage>Finish relase branch, version @{version}</releaseFinishMessage>
+
+						<tagHotfixMessage>tag hotfix - @{version}</tagHotfixMessage>
+						<tagReleaseMessage>tag release - @{version}</tagReleaseMessage>
+					</commitMessages>
 				</configuration>
 			</plugin>
 		</plugins>

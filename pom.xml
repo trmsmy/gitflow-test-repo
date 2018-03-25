@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.trmsmy</groupId>
 	<artifactId>gitflow-test-repo</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>gitflow-test-repo</name>
 	<description>Demo project for Spring Boot</description>
@@ -65,6 +65,42 @@
 					</commitMessages>
 				</configuration>
 			</plugin>
+
+
+			<plugin>
+            <groupId>com.e-gineering</groupId>
+            <artifactId>gitflow-helper-maven-plugin</artifactId>
+            <version>1.7.2</version>
+            <configuration>
+                <releaseDeploymentRepository>releases::default::http://localhost:9999/nexus/content/repositories/releases::false</releaseDeploymentRepository>
+                <stageDeploymentRepository>stage::default::http://localhost:9999/nexus/content/repositories/staging::false</stageDeploymentRepository>
+                <snapshotDeploymentRepository>snapshots::default::http://localhost:9999/nexus/content/repositories/snapshots::true</snapshotDeploymentRepository>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>retarget-deploy</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
 		</plugins>
 	</build>
+
+
+	  <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <layout>default</layout>
+            <url>http://localhost:9999/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <layout>default</layout>
+            <url>http://localhost:9999/nexus/content/repositories/releases</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+    </distributionManagement>
 </project>

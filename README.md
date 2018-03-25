@@ -15,3 +15,6 @@ QA fix for release 0.0.4
 
 F0.0.5
 QA fix 
+
+F0.0.6
+QA fix 

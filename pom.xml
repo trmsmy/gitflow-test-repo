@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.trmsmy</groupId>
 	<artifactId>gitflow-test-repo</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>gitflow-test-repo</name>
 	<description>Demo project for Spring Boot</description>
@@ -87,7 +87,7 @@
                 <execution>
                     
                         <goals>
-                            <goal>enforce-versions</goal>
+                            <!-- <goal>enforce-versions</goal> -->
                             <goal>retarget-deploy</goal>
                             <goal>update-stage-dependencies</goal>
                             <goal>set-properties</goal>

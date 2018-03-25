@@ -20,6 +20,11 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<scm>
+        <developerConnection>scm:git:ssh://git@github.com:trmsmy/gitflow-test-repo.git</developerConnection>
+    </scm>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,7 +49,7 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-
+<!--
 			<plugin>
 				<groupId>com.amashchenko.maven.plugin</groupId>
 				<artifactId>gitflow-maven-plugin</artifactId>
@@ -65,12 +70,14 @@
 					</commitMessages>
 				</configuration>
 			</plugin>
-
+-->
  
 			<plugin>
             <groupId>com.e-gineering</groupId>
             <artifactId>gitflow-helper-maven-plugin</artifactId>
             <version>1.7.2</version>
+			<extensions>true</extensions>
+
             <configuration>
                 <releaseDeploymentRepository>local-nexus::default::http://localhost:9999/nexus/content/repositories/releases::false</releaseDeploymentRepository>
                 <stageDeploymentRepository>local-nexus::default::http://localhost:9999/nexus/content/repositories/staging::false</stageDeploymentRepository>
@@ -78,9 +85,16 @@
             </configuration>
             <executions>
                 <execution>
-                    <goals>
-                        <goal>retarget-deploy</goal>
-                    </goals>
+                    
+                        <goals>
+                            <goal>enforce-versions</goal>
+                            <goal>retarget-deploy</goal>
+                            <goal>update-stage-dependencies</goal>
+                            <goal>set-properties</goal>
+                            <goal>tag-master</goal>
+                            <goal>promote-master</goal>
+                        </goals>
+                    
                 </execution>
             </executions>
         </plugin>  
